@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Web", "StoreApp.Web\StoreApp.Web.csproj", "{99F81E1B-71A6-4A73-B710-C43AA33DDC16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Data", "StoreApp.Data\StoreApp.Data.csproj", "{F4A03439-6097-44DD-82C0-B1E9124979CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{99F81E1B-71A6-4A73-B710-C43AA33DDC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F81E1B-71A6-4A73-B710-C43AA33DDC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F81E1B-71A6-4A73-B710-C43AA33DDC16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A03439-6097-44DD-82C0-B1E9124979CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A03439-6097-44DD-82C0-B1E9124979CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A03439-6097-44DD-82C0-B1E9124979CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A03439-6097-44DD-82C0-B1E9124979CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
