@@ -1,6 +1,10 @@
 @model ProductListViewModel
 <h5>Index Page</h5>
 
+@if(Model.Products.Count() == 0)
+{
+    <p>Product is not found!</p>
+}
 @foreach (var product in Model.Products)
 {
     <div>
