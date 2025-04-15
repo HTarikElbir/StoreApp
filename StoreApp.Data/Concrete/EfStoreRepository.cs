@@ -5,7 +5,7 @@ namespace StoreApp.Data.Concrete;
 
 public class EfStoreRepository: IStoreRepository
 {
-    private readonly StoreDbContext _context;
+    private StoreDbContext _context;
 
     public EfStoreRepository(StoreDbContext context)
     {
@@ -18,4 +18,6 @@ public class EfStoreRepository: IStoreRepository
     {
         throw new NotImplementedException();
     }
+    
+   
 }
