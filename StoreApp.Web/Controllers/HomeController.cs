@@ -25,7 +25,7 @@ namespace StoreApp.Web.Controllers
                         Name = p.Name,
                         Description = p.Description,
                         Price = p.Price,
-                        Category = p.Category,
+                        //Category = p.Category,
                     }).Take(pageSize);
             
             return View(new ProductListViewModel

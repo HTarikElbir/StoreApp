@@ -14,10 +14,6 @@ public class CategoriesListViewComponent: ViewComponent
 
     public IViewComponentResult Invoke()
     {
-        return View(_storeRepository
-            .Products
-            .Select(c => c.Category)
-            .Distinct()
-            .OrderBy(c=>c));
+        return View();
     }
 }
