@@ -34,6 +34,7 @@ namespace StoreApp.Web.Controllers
                 PageInfo = new PageInfo
                 {
                     ItemsPerPage = pageSize,
+                    CurrentPage = page,
                     TotalItems = _storeRepository.Products.Count()
                 }
             });

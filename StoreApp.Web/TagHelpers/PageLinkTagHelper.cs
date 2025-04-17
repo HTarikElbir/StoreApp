@@ -18,24 +18,32 @@ public class PageLinkTagHelper: TagHelper
     }
     
     [ViewContext]
-    public ViewContext? ViewContext { get;}
-    public PageInfo? PageModel { get;}
+    public ViewContext? ViewContext { get; set; }
+    public PageInfo? PageModel { get; set; }
     public string? PageAction { get; set; }
+    public string PageClass { get; set; } = string.Empty;
+    public string PageClassLink { get; set; } = string.Empty;
+    public string PageClassActive { get; set; } = string.Empty;
     
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         if(ViewContext != null && PageModel != null)
         {
             IUrlHelper urlHelper = _urlHelperFactory.GetUrlHelper(ViewContext);
-            TagBuilder div = new TagBuilder("div");
+            //TagBuilder div = new TagBuilder("div");
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder link = new TagBuilder("a");
                 link.Attributes["href"] = urlHelper.Action(PageAction, new { page = i});
+                
+                link.AddCssClass(PageClass);
+                link.AddCssClass(i == PageModel.CurrentPage ? PageClassActive : PageClassLink);
+                
                 link.InnerHtml.Append(i.ToString());
-                div.InnerHtml.AppendHtml(link);
+                
+                output.Content.AppendHtml(link);
+                
             }
-            output.Content.AppendHtml(div);
         }
     }
 }
