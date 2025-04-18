@@ -8,4 +8,6 @@ public interface IStoreRepository
     IQueryable<Category> Categories { get; }
     
     void AddProduct(Product product);
+    int GetProductsCount(string category);
+    IEnumerable<Product> GetProductsByCategory(string category, int page, int pageSize);
 }

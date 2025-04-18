@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StoreApp.Data.Abstract;
 using StoreApp.Web.Models;
 
@@ -6,7 +7,7 @@ namespace StoreApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly int pageSize = 3;
+        private readonly int _pageSize = 3;
         private readonly IStoreRepository _storeRepository;
         public HomeController(IStoreRepository storeRepository)
         {
@@ -14,28 +15,23 @@ namespace StoreApp.Web.Controllers
         }
         
         // GET: HomeController
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string category, int page = 1)
         {
-            var products = _storeRepository
-                .Products
-                .Skip((page - 1) * pageSize) 
-                .Select(p => new ProductViewModel
+            return View(new ProductListViewModel
+            {
+                Products = _storeRepository.GetProductsByCategory(category,page,_pageSize)
+                    .Select(p=>new ProductViewModel
                     {
                         Id = p.Id,
                         Name = p.Name,
                         Description = p.Description,
                         Price = p.Price,
-                        //Category = p.Category,
-                    }).Take(pageSize);
-            
-            return View(new ProductListViewModel
-            {
-                Products = products,
+                    }),
                 PageInfo = new PageInfo
                 {
-                    ItemsPerPage = pageSize,
+                    ItemsPerPage = _pageSize,
                     CurrentPage = page,
-                    TotalItems = _storeRepository.Products.Count()
+                    TotalItems = _storeRepository.GetProductsCount(category)
                 }
             });
         }
