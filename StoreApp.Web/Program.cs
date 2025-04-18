@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using StoreApp.Data.Abstract;
 using StoreApp.Data.Concrete;
+using StoreApp.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("StoreDbConnection");
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
 builder.Services.AddDbContext<StoreDbContext>(options => {
     options.UseSqlite(connectionString, b => b.MigrationsAssembly("StoreApp.Web"));
