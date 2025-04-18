@@ -16,6 +16,12 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 
+// products/phone => products of category list
+app.MapControllerRoute("products_in_category", "products/{category}", new { controller = "Home", action = "Index" });
+
+// iphone-14 => product detail
+app.MapControllerRoute("product_details", "{productName}", new { controller = "Home", action = "Index" });
+
 app.MapDefaultControllerRoute();
 
 app.Run();
