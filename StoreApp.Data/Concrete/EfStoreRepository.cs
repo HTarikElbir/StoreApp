@@ -13,6 +13,7 @@ public class EfStoreRepository: IStoreRepository
     }
     
     public IQueryable<Product> Products => _context.Products;
+    public IQueryable<Category> Categories => _context.Categories;
     
     public void AddProduct(Product product)
     {
