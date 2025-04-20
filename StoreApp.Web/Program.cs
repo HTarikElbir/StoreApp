@@ -17,9 +17,13 @@ builder.Services.AddDbContext<StoreDbContext>(options => {
 
 builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 
 // products/phone => products of category list
 app.MapControllerRoute("products_in_category", "products/{category}", new { controller = "Home", action = "Index" });
