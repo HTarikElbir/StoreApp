@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("StoreDbConnection");
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
@@ -27,5 +28,5 @@ app.MapControllerRoute("products_in_category", "products/{category}", new { cont
 app.MapControllerRoute("product_details", "{productName}", new { controller = "Home", action = "Index" });
 
 app.MapDefaultControllerRoute();
-
+app.MapRazorPages();
 app.Run();
