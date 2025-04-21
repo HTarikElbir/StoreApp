@@ -6,7 +6,7 @@ public class Cart
 {
     public List<CartItem> CartItems { get; set; } = new List<CartItem>();
 
-    public void AddItem(Product product, int quantity)
+    public virtual void AddItem(Product product, int quantity)
     {
         var item = CartItems.Where(p => p.Product.Id == product.Id).FirstOrDefault();
 
@@ -20,7 +20,7 @@ public class Cart
         }
     }
 
-    public void RemoveItem(Product product)
+    public virtual void RemoveItem(Product product)
     {
         CartItems.RemoveAll(p => p.Product.Id == product.Id);
     }
@@ -30,7 +30,7 @@ public class Cart
         return CartItems.Sum(p => p.Product.Price * p.Quantity);
     }
 
-    public void Clear()
+    public virtual void Clear()
     {
         CartItems.Clear();
     }
