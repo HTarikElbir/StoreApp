@@ -28,6 +28,10 @@
     <ItemGroup>
       <ProjectReference Include="..\StoreApp.Data\StoreApp.Data.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\CartSummary\Default.cshtml" />
+    </ItemGroup>
   
 
 </Project>

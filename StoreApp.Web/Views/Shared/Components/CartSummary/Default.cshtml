@@ -1,0 +1,11 @@
+@model Cart
+
+@if (Model?.CartItems.Count() > 0)
+{
+    <a href="/Cart" class="btn btn-sm btn-warning">Go to Cart</a>
+    
+    <small class="text-white">
+        @Model?.CartItems.Sum(i => i.Quantity) products
+        [@Model?.GetTotal()]
+    </small>
+}
